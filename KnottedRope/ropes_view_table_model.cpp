@@ -9,7 +9,7 @@
 #include "utility.h"
 
 RopesViewTableModel::RopesViewTableModel(KnottedRope& kr, QObject* parent)
-    : QAbstractTableModel(parent), kr_(kr)
+    : QAbstractTableModel(parent), kr_(kr), noContentText_(EASYTR("No Content"))
 {
     trySort(kr.sortOrder);
 }
@@ -35,7 +35,7 @@ QVariant RopesViewTableModel::data(const QModelIndex& index, int role) const
     if (role == Qt::DisplayRole)
     {
         if (col == 3 && rope.content.isEmpty())
-            return EASYTR("No Content");
+            return noContentText_;
 
         switch (col)
         {
@@ -64,8 +64,9 @@ QVariant RopesViewTableModel::data(const QModelIndex& index, int role) const
     }
     else if (role == Qt::ForegroundRole)
     {
+        static QColor grayColor = QColor("#969696");
         if (col == 3 && rope.content.isEmpty())
-            return QColor("#969696");
+            return grayColor;
     }
 
     return QVariant();

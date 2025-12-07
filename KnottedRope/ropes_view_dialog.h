@@ -22,7 +22,6 @@ protected:
 
     void changeEvent(QEvent* event) override;
     bool eventFilter(QObject* obj, QEvent* event) override;
-    void showEvent(QShowEvent* event) override;
 
     void onCustomContextMenu(const QPoint& pos);
 

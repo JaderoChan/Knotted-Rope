@@ -26,9 +26,8 @@ RopesViewDialog::RopesViewDialog(KnottedRope& kr, QWidget* parent)
     auto model = new RopesViewTableModel(kr_, this);
     ui.tableView->setModel(model);
     ui.tableView->setItemDelegate(new RopesViewContentEditDelegate(this));
-    ui.tableView->verticalHeader()->setMinimumSectionSize(35);
+    ui.tableView->verticalHeader()->setMinimumSectionSize(50);
     ui.tableView->verticalHeader()->setSectionsClickable(false);
-    ui.tableView->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     ui.tableView->horizontalHeader()->setSectionsClickable(false);
     ui.tableView->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
     ui.tableView->setColumnWidth(0, 40);
@@ -76,12 +75,6 @@ bool RopesViewDialog::eventFilter(QObject* obj, QEvent* event)
         event->type() == QEvent::ContextMenu)
         return true;
     return QDialog::eventFilter(obj, event);
-}
-
-void RopesViewDialog::showEvent(QShowEvent* event)
-{
-    QDialog::showEvent(event);
-    ui.tableView->verticalHeader()->resizeSections(QHeaderView::ResizeToContents);
 }
 
 void RopesViewDialog::onCustomContextMenu(const QPoint& pos)

@@ -23,4 +23,5 @@ public:
 
 private:
     KnottedRope& kr_;
+    QString noContentText_;
 };
