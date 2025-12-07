@@ -69,8 +69,5 @@ target_compile_definitions(
     KNOTTED_ROPE_VERSION="${PROJECT_VERSION}"
 )
 
-if(NOT CMAKE_INSTALL_PREFIX)
-    set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/install)
-endif()
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
 install(DIRECTORY language DESTINATION bin)
