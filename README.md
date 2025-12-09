@@ -15,8 +15,8 @@
 
 **结绳**顾名思义是多段绳子打结形成的一根长绳，这很贴切这款程序的功能（将一段段时间间隔连成一长串），难道不是吗？
 
-## 界面
+## 界面截图
 
-![Home](./snap/home.png)
+![Home](./screenshot/home.png)
 
-![Ropes](./snap/ropes.png)
+![Ropes](./screenshot/ropes.png)
