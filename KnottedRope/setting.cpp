@@ -4,6 +4,8 @@
 
 #include <easy_translate.hpp>
 
+#include "def.h"
+
 Setting::Setting(Config& config, QWidget* parent)
     : QDialog(parent), config_(config)
 {
