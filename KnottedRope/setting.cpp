@@ -25,6 +25,7 @@ Setting::Setting(Config& config, QWidget* parent)
 
 void Setting::updateText()
 {
+    setWindowTitle(EASYTR(APP_TITLE));
     ui.languageTextLbl->setText(EASYTR("Language"));
     ui.languageCombox->setItemText(LANG_EN, EASYTR("English"));
     ui.languageCombox->setItemText(LANG_ZH, EASYTR("Chinese"));
