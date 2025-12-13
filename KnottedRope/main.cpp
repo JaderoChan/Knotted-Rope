@@ -1,7 +1,9 @@
 #include <stdexcept>
 
 #include <qapplication.h>
+#include <qdir.h>
 #include <qfileinfo.h>
+#include <qlockfile.h>
 
 #include <easy_translate.hpp>
 
@@ -13,6 +15,10 @@
 
 int main(int argc, char* argv[])
 {
+    QLockFile lockfile(QDir::current().absoluteFilePath(APP_LOCK_FILENAME));
+    if (lockfile.isLocked() || !lockfile.tryLock(500))
+        return 0;
+
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
     a.setWindowIcon(QIcon(":/resource/icon/icon.ico"));
