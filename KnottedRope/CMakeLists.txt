@@ -12,7 +12,7 @@ endif()
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-file(GLOB HEADER *.h *.hpp)
+file(GLOB HEADER *.h *.hpp) # For show header file in VC project file tree.
 file(GLOB SRC *.c *.cpp)
 file(GLOB UI *.ui)
 file(GLOB QRC *.qrc)
