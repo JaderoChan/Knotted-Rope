@@ -12,10 +12,11 @@ endif()
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+file(GLOB HEADER *.h *.hpp)
 file(GLOB SRC *.c *.cpp)
 file(GLOB UI *.ui)
 file(GLOB QRC *.qrc)
-set(PROJECT_SOURCE ${SRC} ${UI} ${QRC})
+set(PROJECT_SOURCE ${HEADER} ${SRC} ${UI} ${QRC})
 
 qt_standard_project_setup()
 qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCE})
