@@ -5,13 +5,6 @@ project(KnottedRope VERSION 1.0.8 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Just used for my development environment.
-# if(MINGW)
-#     list(APPEND CMAKE_PREFIX_PATH $ENV{QtMinGW})
-# elseif(MSVC)
-#     list(APPEND CMAKE_PREFIX_PATH $ENV{QtMSVC2019})
-# endif()
-
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
