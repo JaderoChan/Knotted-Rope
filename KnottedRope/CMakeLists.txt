@@ -43,13 +43,19 @@ target_link_libraries(
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    set(ARCH_SUFFIX "x64")
+else()
+    set(ARCH_SUFFIX "x86")
+endif()
+
 set_target_properties(
     ${PROJECT_NAME} PROPERTIES
     AUTOMOC ON
     AUTOUIC ON
     AUTORCC ON
     WIN32_EXECUTABLE TRUE
-    OUTPUT_NAME "Knotted Rope"
+    OUTPUT_NAME "Knotted Rope-${PROJECT_VERSION}-${ARCH_SUFFIX}"
 )
 
 target_compile_definitions(
