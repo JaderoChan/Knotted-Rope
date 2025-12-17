@@ -19,7 +19,7 @@ protected:
     virtual void updateText();
 
 protected slots:
-    void onActived(ActivationReason reason);
+    void onActivated(ActivationReason reason);
     void onToggled(bool isPlaying);
 
 private:

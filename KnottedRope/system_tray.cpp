@@ -17,7 +17,7 @@ SystemTrayIcon::SystemTrayIcon(MainWindow* mainWindow, QObject* parent)
     menu_->addActions({showMainWindow_, toggle_, exitApp_});
     setContextMenu(menu_);
 
-    connect(this, &SystemTrayIcon::activated, this, &SystemTrayIcon::onActived);
+    connect(this, &SystemTrayIcon::activated, this, &SystemTrayIcon::onActivated);
 
     connect(mainWindow_, &MainWindow::toggled, this, &SystemTrayIcon::onToggled);
     connect(mainWindow_, &MainWindow::knottedRopeChaged, this, &SystemTrayIcon::setToolTipByMainWindow);
@@ -37,7 +37,7 @@ void SystemTrayIcon::updateText()
     exitApp_->setText(EASYTR("Exit"));
 }
 
-void SystemTrayIcon::onActived(ActivationReason reason)
+void SystemTrayIcon::onActivated(ActivationReason reason)
 {
     switch (reason)
     {

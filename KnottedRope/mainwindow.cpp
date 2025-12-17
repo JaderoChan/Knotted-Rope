@@ -38,18 +38,18 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui.nameLbl, &QLineEdit::editingFinished, this, &MainWindow::unfocusEditName);
     connect(ui.copyTotalElapsedBtn, &QPushButton::clicked, this, &MainWindow::onCopyTotalElapsedBtnPressed);
 
-    connect(ui.actionNew, &QAction::triggered, this, &MainWindow::onNewActived);
-    connect(ui.actionOpen, &QAction::triggered, this, &MainWindow::onOpenActived);
-    connect(ui.actionSave, &QAction::triggered, this, &MainWindow::onSaveActived);
-    connect(ui.actionSaveAs, &QAction::triggered, this, &MainWindow::onSaveAsActived);
-    connect(ui.actionExportCSV, &QAction::triggered, this, &MainWindow::onExportCSVActived);
-    connect(ui.actionSetting, &QAction::triggered, this, &MainWindow::onSettingActived);
-    connect(ui.actionAbout, &QAction::triggered, this, &MainWindow::onAboutActived);
+    connect(ui.actionNew, &QAction::triggered, this, &MainWindow::onNewActivated);
+    connect(ui.actionOpen, &QAction::triggered, this, &MainWindow::onOpenActivated);
+    connect(ui.actionSave, &QAction::triggered, this, &MainWindow::onSaveActivated);
+    connect(ui.actionSaveAs, &QAction::triggered, this, &MainWindow::onSaveAsActivated);
+    connect(ui.actionExportCSV, &QAction::triggered, this, &MainWindow::onExportCSVActivated);
+    connect(ui.actionSetting, &QAction::triggered, this, &MainWindow::onSettingActivated);
+    connect(ui.actionAbout, &QAction::triggered, this, &MainWindow::onAboutActivated);
 
     connect(ui.actionEdit, &QAction::triggered, this, &MainWindow::onEdit);
     connect(ui.actionEditName, &QAction::triggered, this, &MainWindow::focusEditName);
 
-    connect(ui.actionViewRopes, &QAction::triggered, this, &MainWindow::onViewRopesActived);
+    connect(ui.actionViewRopes, &QAction::triggered, this, &MainWindow::onViewRopesActivated);
 
     connect(this, &MainWindow::knottedRopeLoaded, this, [=]()
     {
@@ -339,7 +339,7 @@ void MainWindow::onRecentFilesChanged()
     }
 }
 
-void MainWindow::onNewActived()
+void MainWindow::onNewActivated()
 {
     if (closeKnottedRope())
     {
@@ -348,7 +348,7 @@ void MainWindow::onNewActived()
     }
 }
 
-void MainWindow::onOpenActived()
+void MainWindow::onOpenActivated()
 {
     if (closeKnottedRope())
     {
@@ -367,7 +367,7 @@ void MainWindow::onOpenActived()
     }
 }
 
-void MainWindow::onSaveActived()
+void MainWindow::onSaveActivated()
 {
     if (isPlaying_)
     {
@@ -377,7 +377,7 @@ void MainWindow::onSaveActived()
     saveKnottedRope();
 }
 
-void MainWindow::onSaveAsActived()
+void MainWindow::onSaveAsActivated()
 {
     if (isPlaying_)
     {
@@ -402,7 +402,7 @@ void MainWindow::onSaveAsActived()
     saveKnottedRope(filename);
 }
 
-void MainWindow::onExportCSVActived()
+void MainWindow::onExportCSVActivated()
 {
     if (isPlaying_)
     {
@@ -436,19 +436,19 @@ void MainWindow::onExportCSVActived()
     }
 }
 
-void MainWindow::onSettingActived()
+void MainWindow::onSettingActivated()
 {
     Setting setting(Config::globalInstance());
     setting.exec();
 }
 
-void MainWindow::onAboutActived()
+void MainWindow::onAboutActivated()
 {
     About about;
     about.exec();
 }
 
-void MainWindow::onViewRopesActived()
+void MainWindow::onViewRopesActivated()
 {
     RopesViewDialog dlg(kr_);
     connect(&dlg, &RopesViewDialog::ropesChanged, this, [=]() { emit knottedRopeUpdated(); });

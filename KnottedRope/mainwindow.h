@@ -62,18 +62,18 @@ protected slots:
     void onCopyTotalElapsedBtnPressed();
 
     // File Menu Action
-    void onNewActived();
-    void onOpenActived();
-    void onSaveActived();
-    void onSaveAsActived();
-    void onExportCSVActived();
+    void onNewActivated();
+    void onOpenActivated();
+    void onSaveActivated();
+    void onSaveAsActivated();
+    void onExportCSVActivated();
 
     // Settings Menu Action
-    void onSettingActived();
-    void onAboutActived();
+    void onSettingActivated();
+    void onAboutActivated();
 
     // Menu Menu Action
-    void onViewRopesActived();
+    void onViewRopesActivated();
 
     void onEdit();
 
