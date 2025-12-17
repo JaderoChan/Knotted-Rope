@@ -23,7 +23,6 @@ protected slots:
     void onToggled(bool isPlaying);
 
 private:
-
     QMenu* menu_;
     QAction* showMainWindow_;
     QAction* toggle_;
