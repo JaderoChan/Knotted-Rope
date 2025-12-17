@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 
-project(KnottedRope_Root)
+project(KnottedRope VERSION 1.0.8 LANGUAGES CXX)
 
 set(3RDPARTY ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty)
 set(json_SOURCE_DIR ${3RDPARTY}/json)
