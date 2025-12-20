@@ -194,6 +194,13 @@ void MainWindow::tryExitApp()
     }
 }
 
+void MainWindow::showAndActivate()
+{
+    show();
+    activateWindow();
+    raise();
+}
+
 void MainWindow::updateText()
 {
     // Window

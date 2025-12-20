@@ -28,6 +28,8 @@ public:
     bool closeKnottedRope();
     // 尝试退出程序。
     void tryExitApp();
+    // 显示窗口并激活以确保通过托盘菜单显示主窗口时能够正常显示。
+    void showAndActivate();
 
 signals:
     // 当计时状态切换时发出。

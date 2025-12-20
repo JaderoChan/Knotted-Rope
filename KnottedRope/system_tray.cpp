@@ -23,7 +23,7 @@ SystemTrayIcon::SystemTrayIcon(MainWindow* mainWindow, QObject* parent)
     connect(mainWindow_, &MainWindow::knottedRopeChaged, this, &SystemTrayIcon::setToolTipByMainWindow);
     connect(mainWindow_, &MainWindow::languageChanged, this, &SystemTrayIcon::updateText);
 
-    connect(showMainWindow_, &QAction::triggered, mainWindow_, &MainWindow::show);
+    connect(showMainWindow_, &QAction::triggered, mainWindow_, &MainWindow::showAndActivate);
     connect(toggle_, &QAction::triggered, mainWindow_, &MainWindow::toggle);
     connect(exitApp_, &QAction::triggered, mainWindow_, &MainWindow::tryExitApp);
 
@@ -46,7 +46,7 @@ void SystemTrayIcon::onActivated(ActivationReason reason)
             contextMenu()->popup(QCursor::pos());
             break;
         case DoubleClick:
-            mainWindow_->show();
+            mainWindow_->showAndActivate();
             break;
         default:
             break;
