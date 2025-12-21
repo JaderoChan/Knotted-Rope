@@ -321,7 +321,7 @@ void MainWindow::onRecentFilesChanged()
     {
         if (!filename.isEmpty())
         {
-            QAction* action = new QAction(filename);
+            QAction* action = new QAction(filename, ui.menuOpenRecentFile);
             ui.menuOpenRecentFile->addAction(action);
             connect(action, &QAction::triggered, [=](){
                 QFileInfo file(filename);

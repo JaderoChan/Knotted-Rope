@@ -8,12 +8,12 @@ SystemTrayIcon::SystemTrayIcon(MainWindow* mainWindow, QObject* parent)
 {
     setIcon(QIcon(":/resource/icon/icon.ico"));
 
-    showMainWindow_ = new QAction();
-    toggle_ = new QAction();
-    exitApp_ = new QAction();
+    showMainWindow_ = new QAction(mainWindow);
+    toggle_ = new QAction(mainWindow);
+    exitApp_ = new QAction(mainWindow);
     toggle_->setIcon(isPlaying_ ? pauseIcon_ : playIcon_);
 
-    menu_ = new QMenu();
+    menu_ = new QMenu(mainWindow);
     menu_->addActions({showMainWindow_, toggle_, exitApp_});
     setContextMenu(menu_);
 
