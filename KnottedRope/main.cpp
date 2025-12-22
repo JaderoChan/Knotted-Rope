@@ -15,7 +15,7 @@
 
 int main(int argc, char* argv[])
 {
-    QLockFile lockfile(QDir::current().absoluteFilePath(APP_LOCK_FILENAME));
+    QLockFile lockfile(QDir::temp().absoluteFilePath(APP_LOCK_FILENAME));
     if (lockfile.isLocked() || !lockfile.tryLock(500))
         return 0;
 
