@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
     }
 
     if (!setLanguage(cfg.language()))
-        qDebug() << "[Warning] Failed to load the language";
+        qDebug() << "[Warning] Failed to load language";
 
     MainWindow w;
     if (cfg.openLastFile() && cfg.hasValidLastFilePath())

@@ -27,14 +27,14 @@ bool setLanguage(LanguageID langId)
     if (easytr::hasLanguage(langIdStr))
     {
         if (easytr::setCurrentLanguage(langIdStr))
-            qDebug() << "[Info] Success to change the language to: " << langIdStr.c_str();
+            qDebug() << "[Info] Successfully set language to: " << langIdStr.c_str();
         else
-            qDebug() << "[Warning] Failed to change the language to: " << langIdStr.c_str();
+            qDebug() << "[Warning] Failed to set language to: " << langIdStr.c_str();
     }
-    // Fallthrough, rollback
+    // Fallthrough, fallback
     else
     {
-        qDebug() << "[Info] Expected language is miss, start rollback the language";
+        qDebug() << "[Info] Expected language is missing, try fall back to the default language";
         if (easytr::languages().empty())
         {
             qDebug() << "[Warning] Not find any language";
@@ -42,11 +42,11 @@ bool setLanguage(LanguageID langId)
         }
         else
         {
-            auto rollbackId = easytr::languages().getIds().front();
-            if (easytr::setCurrentLanguage(rollbackId))
-                qDebug() << "[Info] Success to rollback the language to: " << rollbackId.c_str();
+            auto fallbackId = easytr::languages().getIds().front();
+            if (easytr::setCurrentLanguage(fallbackId))
+                qDebug() << "[Info] Successfully fall back to language: " << fallbackId.c_str();
             else
-                qDebug() << "[Warning] Failed to rollback the language to: " << rollbackId.c_str();
+                qDebug() << "[Warning] Failed to fall back to language: " << fallbackId.c_str();
         }
     }
 
