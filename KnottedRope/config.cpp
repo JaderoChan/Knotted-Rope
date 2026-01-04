@@ -12,6 +12,8 @@
 
 using namespace nlohmann;
 
+QMutex Config::mtx;
+
 Config::Config()
 {
     setDefaultStorePath(DEFAULT_STORE_PATH);
@@ -110,6 +112,8 @@ static json pointToJson(const QPoint& pos)
 
 void Config::toFile(const QString& filename) const
 {
+    QMutexLocker<QMutex> locker(&mtx);
+
     json j;
 
     j["openLastFile"] = openLastFile_;
@@ -141,6 +145,8 @@ void Config::toFile(const QString& filename) const
 
 void Config::setLastFilePath(const QString& path)
 {
+    QMutexLocker<QMutex> locker(&mtx);
+
     QFileInfo file(path);
     if (!file.exists() || !file.isFile())
         lastFilePath_ = "";
@@ -150,6 +156,8 @@ void Config::setLastFilePath(const QString& path)
 
 void Config::setDefaultStorePath(const QString& path)
 {
+    QMutexLocker<QMutex> locker(&mtx);
+
     QFileInfo file(path);
     if (!file.exists() || !file.isDir())
         defaultStorePath_ = QDir(DEFAULT_STORE_PATH).absolutePath();
@@ -159,6 +167,8 @@ void Config::setDefaultStorePath(const QString& path)
 
 void Config::setLastOpenedPath(const QString& path)
 {
+    QMutexLocker<QMutex> locker(&mtx);
+
     QFileInfo file(path);
     if (!file.exists() || !file.isDir())
         lastOpenedPath_ = QDir::currentPath();
@@ -168,6 +178,8 @@ void Config::setLastOpenedPath(const QString& path)
 
 void Config::addRecentFile(const QString& filename)
 {
+    QMutexLocker<QMutex> locker(&mtx);
+
     auto absFilename = QDir(filename).absolutePath();
     for (int i = 0; i < recentFiles_.size(); ++i)
         if (recentFiles_[i] == filename)
@@ -180,6 +192,8 @@ void Config::addRecentFile(const QString& filename)
 
 void Config::removeRecentFile(const QString& filename)
 {
+    QMutexLocker<QMutex> locker(&mtx);
+
     auto absFilename = QDir(filename).absolutePath();
     for (int i = 0; i < recentFiles_.size(); ++i)
         if (recentFiles_[i] == filename)
@@ -188,5 +202,6 @@ void Config::removeRecentFile(const QString& filename)
 
 void Config::removeRecentFile(int i)
 {
+    QMutexLocker<QMutex> locker(&mtx);
     recentFiles_.remove(i);
 }
