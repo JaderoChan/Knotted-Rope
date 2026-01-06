@@ -324,7 +324,7 @@ void MainWindow::onRecentFilesChanged()
             QAction* action = new QAction(filename, ui.menuOpenRecentFile);
             ui.menuOpenRecentFile->addAction(action);
             connect(action, &QAction::triggered, [=](){
-                if (!QFileInfo::exists(filename))
+                if (!QFileInfo(filename).isFile())
                 {
                     QMessageBox msgbox(
                         QMessageBox::Icon::Warning,
