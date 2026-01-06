@@ -40,9 +40,7 @@ int main(int argc, char* argv[])
     if (cfg.openLastFile() && cfg.hasValidLastFilePath())
         w.loadKnottedRope(cfg.lastFilePath());
 
-    w.show();
-    w.activateWindow();
-    w.raise();
+    w.showAndActivate();
     if (cfg.rememberPos() && cfg.hasValidPos())
         w.move(cfg.pos());
 
