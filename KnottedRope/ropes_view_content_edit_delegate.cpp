@@ -85,6 +85,7 @@ bool RopesViewContentEditDelegate::eventFilter(QObject* obj, QEvent* event)
             }
             break;
         }
+        // 失去焦点时隐式提交数据。
         case QEvent::FocusOut:
         {
             emit commitData(editor);

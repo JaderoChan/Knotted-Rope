@@ -48,7 +48,7 @@ void exportKnottedRopeToCsv(const KnottedRope& kr, const QString& filename)
         doc.SetRow(index++, row);
     }
 
-    // 在最后一行的时长列加上总时长信息
+    // 在时长所属列的末尾行额外增加一个单元格填写总时长信息。
     doc.SetCell(3, index, getTimeStringFromSecs(kr.elapsed).toStdString());
 
     doc.Save(ofs);

@@ -27,9 +27,9 @@ class KnottedRope
 public:
     KnottedRope() = default;
 
-    // Maybe throw
+    // Maybe throw exception
     static KnottedRope fromFile(const QString& filename);
-    // Maybe throw
+    // Maybe throw exception
     void toFile(const QString& filename) const;
 
     bool isEmpty() const;

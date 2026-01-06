@@ -2,5 +2,5 @@
 
 #include "knotted_rope_ds.h"
 
-// Maybe throw
+// Maybe throw exception
 void exportKnottedRopeToCsv(const KnottedRope& kr, const QString& filename);

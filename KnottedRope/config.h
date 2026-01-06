@@ -22,12 +22,12 @@ public:
     // 获取全局Config实例（空Config）
     static Config& globalInstance();
 
-    // Maybe throw
+    // Maybe throw exception
     static Config fromFile(const QString& filename);
-    // Maybe throw
+    // Maybe throw exception
     void toFile(const QString& filename) const;
 
-    // Getter
+    // Getters
     bool openLastFile() const { QMutexLocker<QMutex> locker(&mtx); return openLastFile_; }
     bool rememberPos() const { QMutexLocker<QMutex> locker(&mtx); return rememberPos_; }
     bool keepSystemTray() const { QMutexLocker<QMutex> locker(&mtx); return keepSystemTray_; }
@@ -38,7 +38,7 @@ public:
     const QString& lastOpenedPath() const { QMutexLocker<QMutex> locker(&mtx); return lastOpenedPath_; }
     const QList<QString>& recentFiles() const { QMutexLocker<QMutex> locker(&mtx); return recentFiles_; }
 
-    // Setter
+    // Setters
     void setOpenLastFile(bool openLastFile)
     { QMutexLocker<QMutex> locker(&mtx); openLastFile_ = openLastFile; }
     void setRememberPos(bool rememberPos)

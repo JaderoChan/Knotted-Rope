@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-    // 为name编辑框增加当ESC按下时完成编辑的功能。
+    // 通过安装事件过滤器使name文本编辑框在ESC键被按下时失去焦点。
     ui.nameLbl->installEventFilter(this);
     ui.editBtn->setIcon(QIcon(":/resource/image/edit.png"));
     ui.playPauseBtn->setIcon(QIcon(":/resource/image/play.png"));
@@ -324,8 +324,7 @@ void MainWindow::onRecentFilesChanged()
             QAction* action = new QAction(filename, ui.menuOpenRecentFile);
             ui.menuOpenRecentFile->addAction(action);
             connect(action, &QAction::triggered, [=](){
-                QFileInfo file(filename);
-                if (!file.exists() || !file.isFile())
+                if (!QFileInfo::exists(filename))
                 {
                     QMessageBox msgbox(
                         QMessageBox::Icon::Warning,
