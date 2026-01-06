@@ -41,6 +41,8 @@ int main(int argc, char* argv[])
         w.loadKnottedRope(cfg.lastFilePath());
 
     w.show();
+    w.activateWindow();
+    w.raise();
     if (cfg.rememberPos() && cfg.hasValidPos())
         w.move(cfg.pos());
 
